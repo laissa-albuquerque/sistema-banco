@@ -1,4 +1,4 @@
-package com.accenture.academico.sistemabanco.entities.enums;
+package com.accenture.academico.sistemabanco.model.enums;
 
 public enum TipoOperacaoEnum {
 

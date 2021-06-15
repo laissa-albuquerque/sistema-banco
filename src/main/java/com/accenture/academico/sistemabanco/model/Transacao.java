@@ -1,4 +1,4 @@
-package com.accenture.academico.sistemabanco.entities;
+package com.accenture.academico.sistemabanco.model;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.accenture.academico.sistemabanco.entities.enums.TipoOperacaoEnum;
+import com.accenture.academico.sistemabanco.model.enums.TipoOperacaoEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

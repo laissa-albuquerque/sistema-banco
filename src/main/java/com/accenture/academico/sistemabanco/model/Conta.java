@@ -1,4 +1,4 @@
-package com.accenture.academico.sistemabanco.entities;
+package com.accenture.academico.sistemabanco.model;
 
 import java.util.List;
 

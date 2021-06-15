@@ -1,4 +1,4 @@
-package com.accenture.academico.sistemabanco.entities;
+package com.accenture.academico.sistemabanco.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +38,8 @@ public class Pessoa {
 
 	@CPF(message = "Cpf deve ser válido!")
 	@Column(name = "CPF_PESSOA")
-	private Long cpf;
+	@Size(min = 13, max = 13)
+	private String cpf;
 
 	@NotBlank(message = "Nome não pode ser nulo e nem vazio!")
 	@Min(value = 3, message = "Nome deve ter ao menos três caracteres!")
