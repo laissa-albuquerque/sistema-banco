@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.accenture.academico.sistemabanco.controller.dto.AlterarAgenciaDto;
+import com.accenture.academico.sistemabanco.controller.dto.InserirAgenciaDto;
 import com.accenture.academico.sistemabanco.model.Agencia;
 import com.accenture.academico.sistemabanco.service.AgenciaService;
 
@@ -29,10 +30,10 @@ public class AgenciaController {
 	private AgenciaService service;
 	
 	@PostMapping
-	public ResponseEntity<Agencia> cadastrarAgencia(@Valid @RequestBody Agencia agencia) {
-		service.cadastrarAgencia(agencia);
+	public ResponseEntity<Agencia> cadastrarAgencia(@Valid @RequestBody InserirAgenciaDto agenciaDto) {
+		Agencia agenciaCadastrada = service.cadastrarAgencia(AgenciaMapper.toAgencia(agenciaDto));
 		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(agencia.getIdAgencia()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(agenciaCadastrada.getIdAgencia()).toUri();
 		
 		return ResponseEntity.created(uri).build();		
 	}
@@ -52,8 +53,8 @@ public class AgenciaController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Agencia> atualizarAgencia(@Valid @RequestBody Agencia agencia) {
-		Agencia agenciaAtualizada = service.atualizarAgencia(agencia);
+	public ResponseEntity<Agencia> atualizarAgencia(@Valid @RequestBody AlterarAgenciaDto agenciaDto) {
+		Agencia agenciaAtualizada = service.atualizarAgencia(AgenciaMapper.toAgencia(agenciaDto));
 		return ResponseEntity.ok().body(agenciaAtualizada);
 	}
 	
