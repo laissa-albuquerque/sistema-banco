@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -38,19 +36,17 @@ public class Pessoa {
 
 	@CPF(message = "Cpf deve ser válido!")
 	@Column(name = "CPF_PESSOA")
-	@Size(min = 13, max = 13)
 	private String cpf;
 
 	@NotBlank(message = "Nome não pode ser nulo e nem vazio!")
-	@Min(value = 3, message = "Nome deve ter ao menos três caracteres!")
-	@Max(value = 161, message = "Nome deve ter no máximo 161 caracteres!")
+	@Size(min = 3, max = 161, message = "Nome deve conter no máximo {max} caracteres!")
 	@Column(name = "NOME_PESSOA")
 	private String nome;
 
 	@NotBlank(message = "Telefone não pode ser nulo e nem vazio!")
-	@Size(min = 12, max = 12, message = "Telefone deve possuir 12 caracteres DDDXXXXXXXXX!")
+	@Size(min = 12, max = 12, message = "Telefone deve possuir {max} caracteres DDDXXXXXXXXX!")
 	@Column(name = "TEL_PESSOA")
-	private Long telefone;
+	private String telefone;
 	
 	@OneToOne
 	@JoinColumn(name = "ID_CONTA")

@@ -13,8 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,21 +35,23 @@ public class Conta {
 	@Column(name = "ID_CONTA")
 	private Integer idConta;
 	
-	@NotBlank(message = "Numero da conta não pode ser nula e nem vazia!")
-	@Size(min = 8, max = 8, message = "Número da conta deve possuir 8 caracteres!")
+	@NotNull(message = "Numero da conta não pode ser nula e nem vazia!")
+	@Max(value = 8, message = "Número da conta deve possuir 8 caracteres!")
+	@Min(value = 8, message = "Número da conta deve possuir 8 caracteres!")
 	@Column(name = "NUMERO_CONTA")
 	private Integer numeroConta;
 	
-	@NotBlank(message = "Numero do digíto não pode ser nulo e nem vazio!")
-	@Size(min = 1, max = 1, message = "Número do dígito deve possuir 1 caractere!")
+	@NotNull(message = "Numero do digíto não pode ser nulo e nem vazio!")
+	@Max(value = 1, message = "Número do dígito deve possuir 1 caractere!")
+	@Min(value = 1, message = "Número do dígito deve possuir 1 caractere!")
 	@Column(name = "DIGITO_VERIFICADOR")
 	private Integer digitoVerificador;
 	
-	@NotBlank(message = "Saldo não pode ser nulo e nem vazio!")
+	@NotNull(message = "Saldo não pode ser nulo e nem vazio!")
 	@Column(name = "SALDO_CONTA")
 	private Double saldo;
 	
-	@NotBlank(message = "Saldo não pode ser nulo e nem vazio!")
+	@NotNull(message = "Saldo não pode ser nulo e nem vazio!")
 	@Column(name = "COFRINHO_CONTA")
 	private Double cofrinho;
 	

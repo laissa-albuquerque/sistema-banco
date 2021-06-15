@@ -44,14 +44,14 @@ public class Agencia {
 	@NotBlank(message = "Nome não pode ser nulo e nem vazio!")
 	@Size(min = 3 ,max = 161, message = "Nome deve ter no mínimo {min} e no máximo {max} caracteres!")
 	@Column(name = "NOME_AGENCIA")
-	private String nome;
+	private String nomeAgencia;
 	
 	@NotBlank(message = "Endereço não pode ser nulo e nem vazio!")
 	@Size(max = 161, message = "Endereço deve ter no máximo {max} caracteres!")
 	@Column(name = "END_AGENCIA")
 	private String endereco;
 	
-	@NotNull(message = "Telefone não pode ser nulo!")
+	@NotBlank(message = "Telefone não pode ser nulo!")
 	@Size(min = 12, max = 12, message = "Telefone deve possuir {min} caracteres DDDXXXXXXXXX!")
 	@Column(name = "TEL_AGENCIA")
 	private String telefone;

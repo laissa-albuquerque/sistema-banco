@@ -14,8 +14,8 @@ public class AgenciaService {
 	@Autowired
 	private AgenciaRepository repository;
 
-	public void cadastrarAgencia(Agencia agencia) {
-		repository.save(agencia);
+	public Agencia cadastrarAgencia(Agencia agencia) {
+		return repository.save(agencia);
 	}
 	
 	public List<Agencia> buscarTodasAsAgencias() {		
