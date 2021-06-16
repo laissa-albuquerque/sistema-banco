@@ -2,7 +2,6 @@ package com.accenture.academico.sistemabanco.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -19,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
@@ -27,6 +26,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @SuperBuilder
 public class Conta {
 	
@@ -36,14 +36,14 @@ public class Conta {
 	private Integer idConta;
 	
 	@NotNull(message = "Numero da conta não pode ser nula e nem vazia!")
-	@Max(value = 8, message = "Número da conta deve possuir 8 caracteres!")
-	@Min(value = 8, message = "Número da conta deve possuir 8 caracteres!")
+	@Max(value = 99999999, message = "Número da conta deve possuir {value} caracteres!")
+	@Min(value = 10000000, message = "Número da conta deve possuir {value} caracteres!")
 	@Column(name = "NUMERO_CONTA")
 	private Integer numeroConta;
 	
 	@NotNull(message = "Numero do digíto não pode ser nulo e nem vazio!")
-	@Max(value = 1, message = "Número do dígito deve possuir 1 caractere!")
-	@Min(value = 1, message = "Número do dígito deve possuir 1 caractere!")
+	@Max(value = 9, message = "Número do dígito deve possuir {value} caractere!")
+	@Min(value = 1, message = "Número do dígito deve possuir {value} caractere!")
 	@Column(name = "DIGITO_VERIFICADOR")
 	private Integer digitoVerificador;
 	
@@ -61,8 +61,5 @@ public class Conta {
 	@ManyToOne
 	@JoinColumn(name = "ID_AGENCIA", nullable = false)	
 	private Agencia agencia;
-	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "conta")
-	private Pessoa pessoa;
 
 }
