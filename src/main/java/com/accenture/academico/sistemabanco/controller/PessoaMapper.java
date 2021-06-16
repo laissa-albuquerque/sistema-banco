@@ -1,5 +1,6 @@
 package com.accenture.academico.sistemabanco.controller;
 
+import com.accenture.academico.sistemabanco.controller.dto.AlterarNomeETelefonePessoaDto;
 import com.accenture.academico.sistemabanco.controller.dto.InserirPessoaDto;
 import com.accenture.academico.sistemabanco.model.Pessoa;
 
@@ -12,4 +13,12 @@ public class PessoaMapper {
 				.telefone(dto.getTelefone())
 				.build();
 		}
+	
+	public static Pessoa toPessoa(AlterarNomeETelefonePessoaDto dto) {
+		return Pessoa.builder()
+				.nome(dto.getNome())
+				.telefone(dto.getTelefone())
+				.build();
+	}
+	
 }

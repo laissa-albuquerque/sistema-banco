@@ -10,11 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.accenture.academico.sistemabanco.model.enums.TipoOperacaoEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,9 +35,9 @@ public class Transacao {
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraMovimentacao;
 	
-	private TipoOperacaoEnum tipoOperacao;
+	private Integer tipoOperacao;
 	
-	@NotBlank(message = "Valor não pode ser nulo e nem vazio!")
+	@NotNull(message = "Valor não pode ser nulo!")
 	private Double valor;
 
 	@ManyToOne

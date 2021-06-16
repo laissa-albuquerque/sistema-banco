@@ -1,8 +1,6 @@
 package com.accenture.academico.sistemabanco.controller.dto;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -24,7 +22,6 @@ import lombok.experimental.SuperBuilder;
 public class AlterarAgenciaDto {
 	
 	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_AGENCIA")
 	private Integer idAgencia;
 	

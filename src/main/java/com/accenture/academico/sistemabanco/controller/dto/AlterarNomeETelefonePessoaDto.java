@@ -3,21 +3,18 @@ package com.accenture.academico.sistemabanco.controller.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @SuperBuilder
-public class InserirPessoaDto {
-	
-	@CPF(message = "Cpf deve ser válido!")
-	private String cpf;
+public class AlterarNomeETelefonePessoaDto {
 
 	@NotBlank(message = "Nome não pode ser nulo e nem vazio!")
 	@Size(min = 3, max = 161, message = "Nome deve conter no máximo {max} caracteres!")
@@ -26,9 +23,5 @@ public class InserirPessoaDto {
 	@NotBlank(message = "Telefone não pode ser nulo e nem vazio!")
 	@Size(min = 12, max = 12, message = "Telefone deve possuir {max} caracteres DDDXXXXXXXXX!")
 	private String telefone;
-	
-	private Integer idConta;
-	
-
 
 }
