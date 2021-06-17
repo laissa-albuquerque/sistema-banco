@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.accenture.academico.sistemabanco.controller.dto.InserirContaDto;
+import com.accenture.academico.sistemabanco.controller.mapper.ContaMapper;
 import com.accenture.academico.sistemabanco.model.Conta;
 import com.accenture.academico.sistemabanco.service.ContaService;
 

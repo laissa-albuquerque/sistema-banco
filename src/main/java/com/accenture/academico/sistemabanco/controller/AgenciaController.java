@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.accenture.academico.sistemabanco.controller.dto.AlterarAgenciaDto;
 import com.accenture.academico.sistemabanco.controller.dto.InserirAgenciaDto;
+import com.accenture.academico.sistemabanco.controller.mapper.AgenciaMapper;
 import com.accenture.academico.sistemabanco.model.Agencia;
 import com.accenture.academico.sistemabanco.service.AgenciaService;
 

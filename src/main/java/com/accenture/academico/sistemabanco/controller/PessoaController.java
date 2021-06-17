@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.accenture.academico.sistemabanco.controller.dto.AlterarNomeETelefonePessoaDto;
 import com.accenture.academico.sistemabanco.controller.dto.InserirPessoaDto;
+import com.accenture.academico.sistemabanco.controller.mapper.PessoaMapper;
 import com.accenture.academico.sistemabanco.model.Pessoa;
 import com.accenture.academico.sistemabanco.service.PessoaService;
 

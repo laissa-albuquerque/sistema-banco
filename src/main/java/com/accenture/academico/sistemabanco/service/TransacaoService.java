@@ -27,13 +27,25 @@ public class TransacaoService {
 			contaService.realizarDeposito(conta.getIdConta(), transacao.getValor());
 			
 		} else if (TipoOperacaoEnum.toEnum(transacao.getTipoOperacao()) == TipoOperacaoEnum.SAQUE) {
+			contaService.realizarSaque(conta.getIdConta(), transacao.getValor());
 			
-		} else if (TipoOperacaoEnum.toEnum(transacao.getTipoOperacao()) == TipoOperacaoEnum.TRANSFERENCIA) {
-			
-		}
-		
-		
+		}		
 		return transacaoRepository.save(transacao);
 	}
+	
+	public void cadastrarTransferencia(Integer numContaOrigem, Integer numContaDestino, Transacao transacaoOrigem, Transacao transacaoDestino) {
+		Conta contaOrigem = contaService.buscarContaPorNumero(numContaOrigem);
+		Conta contaDestino =  contaService.buscarContaPorNumero(numContaDestino);
+		
+		transacaoOrigem.setConta(contaOrigem);
+		transacaoDestino.setConta(contaDestino);
+		
+		contaService.realizarTransferencia(contaOrigem, contaDestino, transacaoOrigem.getValor());
+		
+		transacaoRepository.save(transacaoOrigem);
+		transacaoRepository.save(transacaoDestino);		
+	}
+	
+	//public List<Transacao>  
 
 }

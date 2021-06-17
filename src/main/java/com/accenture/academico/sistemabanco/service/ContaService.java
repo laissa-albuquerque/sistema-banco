@@ -24,7 +24,6 @@ public class ContaService {
 
 		conta.setAgencia(agencia);
 		conta.setSaldo(0.0);
-		conta.setCofrinho(0.0);
 
 		return contaRepository.save(conta);
 	}
@@ -35,6 +34,10 @@ public class ContaService {
 
 	public Conta buscarContaPorId(Integer id) {
 		return contaRepository.findById(id).get();
+	}
+	
+	public Conta buscarContaPorNumero(Integer numConta) {
+		return contaRepository.findByNumeroConta(numConta).get();
 	}
 
 	public void removerContaPorId(Integer id) {
@@ -47,6 +50,22 @@ public class ContaService {
 		conta.setSaldo(conta.getSaldo() + valor);
 
 		contaRepository.save(conta);
+	}
+	
+	public void realizarSaque(Integer idConta, Double valor) {
+		Conta conta = buscarContaPorId(idConta);
+		conta.setSaldo(conta.getSaldo() - valor);
+		
+		contaRepository.save(conta);
+	}
+	
+	public void realizarTransferencia(Conta contaOrigem, Conta contaDestino, Double valor) {
+		
+		contaOrigem.setSaldo(contaOrigem.getSaldo() - valor);
+		contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+		
+		contaRepository.save(contaOrigem);
+		contaRepository.save(contaDestino);
 	}
 
 }

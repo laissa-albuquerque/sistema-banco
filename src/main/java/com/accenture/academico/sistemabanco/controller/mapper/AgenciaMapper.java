@@ -1,4 +1,4 @@
-package com.accenture.academico.sistemabanco.controller;
+package com.accenture.academico.sistemabanco.controller.mapper;
 
 import com.accenture.academico.sistemabanco.controller.dto.AlterarAgenciaDto;
 import com.accenture.academico.sistemabanco.controller.dto.InserirAgenciaDto;

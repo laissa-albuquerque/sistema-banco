@@ -15,6 +15,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,10 +52,6 @@ public class Conta {
 	@NotNull(message = "Saldo não pode ser nulo e nem vazio!")
 	@Column(name = "SALDO_CONTA")
 	private Double saldo;
-	
-	@NotNull(message = "Saldo não pode ser nulo e nem vazio!")
-	@Column(name = "COFRINHO_CONTA")
-	private Double cofrinho;
 	
 	@OneToMany(mappedBy = "conta")
 	private List<Transacao> transacoes;

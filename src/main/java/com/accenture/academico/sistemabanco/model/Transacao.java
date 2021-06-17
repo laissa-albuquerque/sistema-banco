@@ -14,8 +14,11 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
@@ -23,6 +26,7 @@ import lombok.experimental.SuperBuilder;
 @Table(name = "TB_TRANSACAO")
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 public class Transacao {
@@ -41,6 +45,7 @@ public class Transacao {
 	private Double valor;
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "ID_CONTA", nullable = false)
 	private Conta conta;
 	
