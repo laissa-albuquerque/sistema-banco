@@ -26,7 +26,7 @@ public class SwaggerConfig {
 	            .version("1.0.0")
 	            .contact(new Contact("", "", ""))
                 .title("Agile Bank")
-                .description("Api que fornece operações bancárias!")
+                .description("Api que fornece operações bancárias.")
                 .build();
     }
 
