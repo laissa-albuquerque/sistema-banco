@@ -7,6 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @ControllerAdvice
 public class CustomExceptionHandler {
+
 	
 	@ExceptionHandler(NegocioException.class)
 	public ResponseStatusException negocio(NegocioException e) {

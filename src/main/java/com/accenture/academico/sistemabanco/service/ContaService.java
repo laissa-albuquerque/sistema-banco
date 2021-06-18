@@ -82,7 +82,7 @@ public class ContaService {
 	public void realizarSaque(Integer idConta, Double valor) {
 		Conta conta = buscarContaPorId(idConta);
 		
-		if (valor < conta.getSaldo()) {
+		if (valor > conta.getSaldo()) {
 			throw new NegocioException("Saldo insuficiente");
 		}
 		conta.setSaldo(conta.getSaldo() - valor);
@@ -93,7 +93,7 @@ public class ContaService {
 	@SneakyThrows
 	public void realizarTransferencia(Conta contaOrigem, Conta contaDestino, Double valor) {
 		
-		if (valor < contaOrigem.getSaldo()) {
+		if (valor > contaOrigem.getSaldo()) {
 			throw new NegocioException("Saldo insuficiente");
 		}
 		

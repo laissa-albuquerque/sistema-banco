@@ -43,7 +43,7 @@ public class AgenciaService {
 	
 	@SneakyThrows
 	public Agencia atualizarAgencia(Agencia agencia) {
-		buscarAgenciaPorId(agencia.getIdAgencia());		
+		//buscarAgenciaPorId(agencia.getIdAgencia());		
 		Agencia agenciaAtualizada = repository.save(agencia);
 		
 		if (agenciaAtualizada == null) {
