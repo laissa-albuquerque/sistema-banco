@@ -54,7 +54,7 @@ public class Agencia {
 	private String endereco;
 	
 	@NotBlank(message = "Telefone não pode ser nulo!")
-	@Size(min = 12, max = 12, message = "Telefone deve possuir {min} caracteres DDDXXXXXXXXX!")
+	@Size(min = 11, max = 11, message = "Telefone deve possuir {min} caracteres DDDXXXXXXXXX!")
 	@Column(name = "TEL_AGENCIA")
 	private String telefone;
 	
